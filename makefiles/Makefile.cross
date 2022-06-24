@@ -1,0 +1,11 @@
+ARCH=arm
+COMPILER=arm-none-linux-gnueabi
+KERNELDIR := /home/test/..../kerenl
+PWD := $(shell pwd)
+obj-m := test_driver.o
+
+all:
+	    $(MAKE) -C $(KERNELDIR) M=$(PWD) ARCH=$(ARCH) CROSS_COMPILE=$(COMPILER) modules
+
+clean:
+	    $(MAKE) -C $(KERNELDIR) M=$(PWD) ARCH=$(ARCH) clean
